@@ -18,6 +18,14 @@ export default class CalendarModel extends Model {
     return this._currentMonth;
   }
 
+  get selected() {
+    return this._selectedId;
+  }
+
+  set selected(id) {
+    this._selectedId = id
+  }
+
   changeMonth(rel) {
     this._currentDate = getDateWithChangeMonths(this._currentDate, rel);
     this._currentMonth = new Month(this._currentDate);

@@ -18,12 +18,10 @@ export default class CalendarView {
   }
 
   get template() {
-    let i = 1;
-    let days = ``;
-    while (i <= this._model.currentMonth.daysCount) {
-      days = days + `<div class='calendar_day'>${i}</div>`;
-      i++;
-    }
+    const days = this._model.currentMonth.days.reduce((acc, day) => {
+      acc = acc + `<div class='calendar_day'>${day.dayNumber}</div>`;
+      return acc;
+    }, '');
     return `<div class="calendar">${days}</div>`;
   }
 

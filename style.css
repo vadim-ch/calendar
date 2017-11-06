@@ -1,0 +1,11 @@
+html, body {
+  margin: 0;
+}
+
+.calendar {
+  display: flex;
+}
+
+.calendar_day {
+  flex-grow: 1;
+}
