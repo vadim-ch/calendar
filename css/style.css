@@ -80,6 +80,10 @@ html, body {
   font-weight: bold;
 }
 
+.calendar_day.selected {
+  background: #e7eef3;
+}
+
 .calendar_day.prev, .calendar_day.next {
 
 }
