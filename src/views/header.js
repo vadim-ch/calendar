@@ -30,7 +30,7 @@ export default class HeaderView {
 
   updateButtonsState() {
     for (const button of this.element.querySelectorAll('.main_button')) {
-      button.disabled = false;
+      button.disabled = !this._model.selected;
     }
   }
 
