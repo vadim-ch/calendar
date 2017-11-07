@@ -18,7 +18,7 @@ export default class Month extends Model {
   }
 
   get daysCount() {
-    return 32 - new Date(this._date.getFullYear(), this._date.getMonth(), 32).getDate();
+    return 32 - new Date(this.year, this.monthNumber, 32).getDate();
   }
 
   get days() {
@@ -26,8 +26,12 @@ export default class Month extends Model {
   }
 
   __createDays() {
+    const currentDate = new Date();
+    currentDate.setHours(0,0,0,0);
     for(let i = 0; i < this.daysCount; i++) {
-      this._days.push(new Day(i + 1, this.monthNumber, this.year));
+      const date = new Date(this.year, this.monthNumber, i + 1);
+      this._days.push(
+          new Day(i + 1, date.getDay(), this.monthNumber, this.year, date.getTime() === currentDate.getTime()));
     }
   }
 }

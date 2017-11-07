@@ -1,0 +1,88 @@
+html, body {
+  margin: 0;
+}
+
+.main_section {
+  margin: 0 6vw;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 66px);
+  border: 1px solid #e0e0e0;
+  border-raduis: 3px;
+}
+
+.calendar_week {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-grow: 1;
+}
+
+.calendar_week:nth-child(1) .calendar_day:nth-child(1):before {
+  content: 'Понедельник, ';
+}
+
+.calendar_week:nth-child(1) .calendar_day:nth-child(2):before {
+  content: 'Вторник, ';
+}
+
+.calendar_week:nth-child(1) .calendar_day:nth-child(3):before {
+  content: 'Среда, ';
+}
+
+.calendar_week:nth-child(1) .calendar_day:nth-child(4):before {
+  content: 'Четверг, ';
+}
+
+.calendar_week:nth-child(1) .calendar_day:nth-child(5):before {
+  content: 'Пятница, ';
+}
+
+.calendar_week:nth-child(1) .calendar_day:nth-child(6):before {
+  content: 'Суббота, ';
+}
+
+.calendar_week:nth-child(1) .calendar_day:nth-child(7):before {
+  content: 'Воскресенье, ';
+}
+
+.calendar_week:nth-child(1) .calendar_day {
+  border-top: 0;
+}
+
+.calendar_day {
+  flex-grow: 1;
+  color: #5d5d5d;
+  border-left: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+  flex-shrink: 1;
+  flex-basis: 0;
+  padding: 8px;
+}
+
+.calendar_day:first-child {
+  border-left: 0;
+}
+
+.calendar_day.now_day {
+  color: #000;
+  font-weight: bold;
+}
+
+.calendar_day.prev, .calendar_day.next {
+
+}
+
+.controls {
+  display: flex;
+  align-items: baseline;
+}
+
+.controls .control_button {
+  border: 1px solid #e0e0e0;
+  background: transparent;
+  border-radius: 3px;
+  cursor: pointer;
+}

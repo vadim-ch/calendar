@@ -6,12 +6,18 @@ import ControlsView from '../views/controls.js';
 export function presenter()  {
   const calendar = new CalendarModel(new Date);
   const events = new EventsModel();
-  const calendarView = new CalendarView(calendar);
-  const controlsView = new ControlsView(calendar);
+  const calendarView = new CalendarView(calendar, (id) => calendar.selected = id);
+  const controlsView = new ControlsView(
+      calendar,
+      () => calendar.changeMonth(Rel.PREV),
+      () => calendar.changeMonth(Rel.NEXT)
+  );
   calendar.subscribe(() => {
-    console.log('обновился');
+    controlsView.updateName();
+    calendarView.update();
   });
 
-  document.body.appendChild(controlsView.element);
-  document.body.appendChild(calendarView.element);
+  const mainSection = document.querySelector('.main_section');
+  mainSection.appendChild(controlsView.element);
+  mainSection.appendChild(calendarView.element);
 }

@@ -29,20 +29,34 @@ export default class ControlsView {
   get element() {
     if (!this._element) {
       this._element = ControlsView.render(this.template);
-      this.__bindListeners();
+      this.__bindListeners(this._element);
     }
     return this._element;
   }
 
   get template() {
-    const monthNumber = this._model.currentMonth.monthNumber;
-    const year = this._model.currentMonth.year;
-    return `
-<button type=button>Назад</button>
-<div class="calendar_control">${MonthNames[monthNumber]} ${year}</div>
-<button type=button>Впередё</button>`;
+    return `<div class="controls">
+<button type=button class="prev_button control_button fa fa-arrow-circle-left"></button>
+<div class="calendar_control">${this.monthName}</div>
+<button type=button class="next_button control_button fa fa-arrow-circle-right"></button>
+</div>`;
   }
 
-  __bindListeners(element, ) {
+  get monthName() {
+    const monthNumber = this._model.currentMonth.monthNumber;
+    const year = this._model.currentMonth.year;
+    return `${MonthNames[monthNumber]} ${year}`;
+  }
+
+  updateName() {
+    this._element.querySelector('.calendar_control').innerText = `${this.monthName}`;
+  }
+
+  __bindListeners(element) {
+    const prevButton = element.querySelector('.prev_button');
+    const nextButton = element.querySelector('.next_button');
+
+    prevButton.addEventListener('click', this._changePrev);
+    nextButton.addEventListener('click', this._changeNext);
   }
 }
