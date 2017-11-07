@@ -32,12 +32,14 @@ export default class CalendarView {
     const htmlNextDays = nextDays.map(day => this.__htmlDay(day.id, 'calendar_day next', day.day, day.isCurrentDay, day.id === selectedId));
     const days = [...htmlPrevDays, ...htmlDays, ...htmlNextDays];
 
-    return `<div class="calendar">
-<div class="calendar_week">${days.slice(0, 7).join('')}</div>
-<div class="calendar_week">${days.slice(7, 14).join('')}</div>
-<div class="calendar_week">${days.slice(14, 21).join('')}</div>
-<div class="calendar_week">${days.slice(21, 28).join('')}</div>
-<div class="calendar_week">${days.slice(28, 36).join('')}</div>
+    return `<div class="container">
+  <div class="calendar">
+    <div class="calendar_week">${days.slice(0, 7).join('')}</div>
+    <div class="calendar_week">${days.slice(7, 14).join('')}</div>
+    <div class="calendar_week">${days.slice(14, 21).join('')}</div>
+    <div class="calendar_week">${days.slice(21, 28).join('')}</div>
+    <div class="calendar_week">${days.slice(28, 36).join('')}</div>
+  </div>
 </div>`;
   }
 

@@ -35,10 +35,12 @@ export default class ControlsView {
   }
 
   get template() {
-    return `<div class="controls">
-<button type=button class="prev_button control_button fa fa-arrow-circle-left"></button>
-<div class="calendar_control">${this.monthName}</div>
-<button type=button class="next_button control_button fa fa-arrow-circle-right"></button>
+    return `<div class="container">
+  <div class="controls">
+    <button type=button class="prev_button control_button fa fa-arrow-circle-left"></button>
+    <div class="calendar_control">${this.monthName}</div>
+    <button type=button class="next_button control_button fa fa-arrow-circle-right"></button>
+  </div>
 </div>`;
   }
 
