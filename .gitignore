@@ -1,0 +1,10 @@
+### IDE Files ###
+.idea
+*.iml
+
+### NPM files ###
+/node_modules
+npm-debug.log
+
+### MAAAAC ###
+.DS_Store
