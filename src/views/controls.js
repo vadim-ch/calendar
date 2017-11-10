@@ -14,10 +14,11 @@ const MonthNames = {
 };
 
 export default class ControlsView {
-  constructor(model, changePrev, changeNext) {
+  constructor(model, changePrev, changeNext, changeMonthByDate) {
     this._model = model;
     this._changePrev = changePrev;
     this._changeNext = changeNext;
+    this._changeMonthByDate = changeMonthByDate;
   }
 
   static render(html) {
@@ -37,9 +38,12 @@ export default class ControlsView {
   get template() {
     return `<div class="container">
   <div class="controls">
-    <button type=button class="prev_button control_button fa fa-arrow-circle-left"></button>
-    <div class="calendar_control">${this.monthName}</div>
-    <button type=button class="next_button control_button fa fa-arrow-circle-right"></button>
+    <div class="controls_buttons_wrapper">
+      <button type=button class="prev_button control_button fa fa-caret-left"></button>
+      <div class="calendar_control">${this.monthName}</div>
+      <button type=button class="next_button control_button fa fa-caret-right"></button>
+    </div>
+    <button class="control_button today_button">Сегодня</button>
   </div>
 </div>`;
   }
@@ -57,8 +61,10 @@ export default class ControlsView {
   __bindListeners(element) {
     const prevButton = element.querySelector('.prev_button');
     const nextButton = element.querySelector('.next_button');
+    const todayButton = element.querySelector('.today_button');
 
     prevButton.addEventListener('click', this._changePrev);
     nextButton.addEventListener('click', this._changeNext);
+    todayButton.addEventListener('click', this._changeMonthByDate);
   }
 }

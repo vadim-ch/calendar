@@ -20,12 +20,16 @@ export default class HeaderView {
   }
 
   get template() {
-    return `<div class="container">
-  <div class="header_buttons">
-    <button class="main_button button_add" disabled>Добавить</button>
-    <button class="main_button button_update" disabled>Обновить</button>
-  </div>
-</div>`;
+    return `
+    <div class="container">
+      <div class="header_buttons">
+        <button class="main_button button_add" disabled>Добавить</button>
+        <button class="main_button button_update" disabled>Обновить</button>
+      </div>
+      <div class="header_search">
+        <i class="fa fa-search" aria-hidden="true"></i><input type="text" placeholder="Событие, дата или участник">
+      </div>
+    </div>`;
   }
 
   updateButtonsState() {

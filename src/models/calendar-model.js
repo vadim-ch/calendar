@@ -39,9 +39,13 @@ export default class CalendarModel extends Model {
 
   changeMonth(rel) {
     this._currentDate = getDateWithChangeMonths(this._currentDate, rel);
-    this._currentMonth = new Month(this._currentDate);
-    this._prevMonth = new Month(getDateWithChangeMonths(this._currentDate, -1));
-    this._nextMonth = new Month(getDateWithChangeMonths(this._currentDate, 1));
+    this.changeMonthByDate(this._currentDate);
+  }
+
+  changeMonthByDate(date) {
+    this._currentMonth = new Month(date);
+    this._prevMonth = new Month(getDateWithChangeMonths(date, -1));
+    this._nextMonth = new Month(getDateWithChangeMonths(date, 1));
     this.__notifyAll();
   }
 }
